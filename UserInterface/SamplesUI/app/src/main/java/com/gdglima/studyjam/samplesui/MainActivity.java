@@ -1,4 +1,4 @@
-package com.gdglima.studyjam.lesson1;
+package com.gdglima.studyjam.samplesui;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
