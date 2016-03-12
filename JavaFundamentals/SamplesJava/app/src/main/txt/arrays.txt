@@ -1,0 +1,35 @@
+
+    List<String> listOfStrings = new ArrayList();
+        String[] arrayOfStrings = { "Pesho", "Ivan", "Dobri", "Gosho" };
+        for (String str : arrayOfStrings) {
+            listOfStrings.add(str);
+        }
+
+    for (String str : listOfStrings) {
+            writeLine(str);
+        }
+
+     for (int i = 0; i < listOfStrings.size(); i++) {
+            writeLine(listOfStrings.get(i));
+        }
+
+    //---------------------------------------
+
+      String[] daysOfWeek = new String[] {
+            "Monday", "Tuesday", "Wednesday",
+            "Thursday", "Friday", "Saturday", "Sunday"
+        };
+
+        writeLine(daysOfWeek.length);
+
+    //---------------------------------------
+
+    String[] array = { "one", "two", "three", "four" };
+
+            // Process all elements of the array
+            for (int index = 0; index < array.length; index++) {
+                // Print each element on a separate line
+                writeLine("element[{0}] = {1}", index, array[index]);
+            }
+
+    //---------------------------------------

@@ -1,0 +1,33 @@
+
+       int number = 2;
+
+        if (number % 2 == 0) {
+            writeLine("This number is even.");
+        }
+        else {
+            writeLine("This number is odd.");
+        }
+
+
+        //------------------------------------------
+
+        char ch = 'a';
+
+        if (ch == 'A' || ch == 'a') {
+            writeLine("Vocal [ei]");
+        }
+        else if (ch == 'E' || ch == 'e') {
+            writeLine("Vocal [i:]");
+        }
+        else if (ch == 'I' || ch == 'i') {
+            writeLine("Vocal [ai]");
+        }
+        else if (ch == 'O' || ch == 'o') {
+            writeLine("Vocal [ou]");
+        }
+        else if (ch == 'U' || ch == 'u') {
+            writeLine("Vocal [ju:]");
+        }
+        else {
+            writeLine("Consonant");
+        }

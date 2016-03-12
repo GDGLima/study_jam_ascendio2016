@@ -1,0 +1,90 @@
+
+    //----------------------------------------
+    int count = 10;
+
+    int sum = 0;
+
+    for (int i = 1; i <= count; i += 2) {
+      if ((i % 7) == 0) {
+        continue;
+      }
+
+      sum += i;
+    }
+
+    System.out.printf("sum = %d%n", sum);
+
+    //-----------------------------------------
+
+     for (int i = 0; i < 10; ++i) {
+          System.out.printf("%d ", i);
+        }
+    //-----------------------------------------
+    String[] days = new String[] {
+            "Monday", "Tuesday", "Wednesday",
+            "Thursday", "Friday", "Saturday", "Sunday"
+        };
+
+    for (String day : days) {
+      System.out.println(day);
+    }
+
+    //------------------------------------------
+
+        int n = 5;
+        int number = 1;
+        int sum = 1;
+
+        writeLine("The sum 1");
+        while (number < n)
+        {
+            number++;
+            sum += number;
+            writeLine("+{0}", number);
+        }
+        writeLine(" = {0}", sum);
+
+ //------------------------------------------
+
+     int i = 0;
+
+     while(i < 5)
+     {
+       System.out.println("i is : " + i);
+       i++;
+     }
+
+ //---------------------------------------------
+
+     int n = 0;
+     while (n < 10) {
+     System.out.println("Contando hacia arriba " + n);
+     n++;
+     }
+     while (n > 0) {
+     System.out.println("Contando hacia abajo " + n);
+     n--;
+     }
+
+//---------------------------------------------
+
+    for (int i = 0; i < 10; i++) {
+    System.out.println("Contando hacia arriba " + i);
+    }
+    for (int i = 10; i > 0; i--) {
+    System.out.println(Contando hacia abajo " + i);
+    }
+
+//---------------------------------------------
+
+    int[] x = new int[10];
+    for (int i = 0; i < 10; i++) {
+        x[i] = i;
+    }
+    for (int i = 0; i < 10; i++) {
+
+        System.out.println(x[i]);
+    }
+
+
+//---------------------------------------------
