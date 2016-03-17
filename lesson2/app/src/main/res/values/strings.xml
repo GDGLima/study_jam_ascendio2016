@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">lesson2</string>
+    <string name="email_hint">email</string>
+    <string name="password_hint">Password</string>
+    <string name="username_hint">Username</string>
+    <string name="user_display">User display</string>
+    <string name="login">Login</string>
+    <string name="fields_warning">Please fill all the fields</string>
+</resources>
