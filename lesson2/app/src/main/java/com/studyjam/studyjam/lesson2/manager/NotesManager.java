@@ -24,6 +24,7 @@ public class NotesManager {
         notesList.add(new Note("Study Jams Sabado 19 de marzo", "Llegar 9 am o sino no entro :(", new Date()));
         notesList.add(new Note("Study Jams", "Tarea de Android", new Date()));
         notesList.add(new Note("Study Jams como hacer un listview", "Wow, such listview", new Date()));
+        notesList.add(new Note("Esto es una nota de prueba", "YEAHHH", new Date()));
         notesList.add(new Note("Study Jams como hacer un listview", "This is a big description because I would like to show everyone how this row is not particularly the same height as the other rows and this is why this is a big description blablablabla who is reading so far? why would you do something like that?? ok ok ok ok", new Date()));
     }
 
