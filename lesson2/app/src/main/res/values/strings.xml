@@ -6,4 +6,8 @@
     <string name="user_display">User display</string>
     <string name="login">Login</string>
     <string name="fields_warning">Please fill all the fields</string>
+    <string name="note_title">Note Title</string>
+    <string name="note_description">Note Description</string>
+    <string name="add_note">Add Note</string>
+    <string name="noteAdded">The note has been added</string>
 </resources>
