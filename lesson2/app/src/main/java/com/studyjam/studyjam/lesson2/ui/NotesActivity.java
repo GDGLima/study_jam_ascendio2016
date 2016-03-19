@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -22,6 +23,9 @@ import com.studyjam.studyjam.lesson2.model.Note;
  */
 public class NotesActivity extends AppCompatActivity {
 
+    public static final int REQUEST_CODE_DETAIL = 101;
+
+    public static final String POSITION = "pos";
     public static final String DATE = "date";
     public static final String TITLE = "title";
     public static final String DESCRIPTION = "description";
@@ -39,23 +43,25 @@ public class NotesActivity extends AppCompatActivity {
         lvNotes = (ListView) findViewById(R.id.lvNotes);
         notesAdapter = new NotesAdapter(NotesManager.getInstance().getNotes());
         lvNotes.setAdapter(notesAdapter);
+
         lvNotes.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Note note = (Note) lvNotes.getItemAtPosition(position);
                 Intent intent = new Intent(NotesActivity.this, DetailNoteActivity.class);
+                intent.putExtra(POSITION, position);
                 intent.putExtra(TITLE, note.getTitle());
                 intent.putExtra(DESCRIPTION, note.getDescription());
                 intent.putExtra(DATE, note.getDate().toString());
-                startActivity(intent);
+                startActivityForResult(intent, 101);
             }
         });
+
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        notesAdapter.notifyDataSetChanged();
     }
 
     @Override
@@ -79,7 +85,22 @@ public class NotesActivity extends AppCompatActivity {
 
     private void addNewNote() {
         Intent intent = new Intent(this, AddNoteActivity.class);
-        startActivity(intent);
+        startActivityForResult(intent, 100);
     }
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == 100) {
+            if (resultCode == 50){
+                notesAdapter.notifyDataSetChanged();
+                Log.e("Log", "Se esta refrescando");
+            }
+        } else if(requestCode == REQUEST_CODE_DETAIL) {
+            if (resultCode == 60) {
+                notesAdapter.notifyDataSetChanged();
+                Log.e("Log", "Se esta refrescando2");
+            }
+        }
+    }
 }

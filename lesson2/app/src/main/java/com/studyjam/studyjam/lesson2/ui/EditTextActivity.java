@@ -58,8 +58,10 @@ public class EditTextActivity extends AppCompatActivity {
                 if (validateEditText(etUserName) && validateEditText(etEmail) && validateEditText(etPassword)) {
                     User user = new User(etUserName.getText().toString(), etEmail.getText().toString());
                     UserManager.getInstance().setUser(user);
-                    Intent intent = new Intent(EditTextActivity.this, NotesActivity.class);
-                    startActivity(intent);
+                    //Intent intent = new Intent(EditTextActivity.this, NotesActivity.class);
+                    Intent intent2 = new Intent();
+                    intent2.setClass(EditTextActivity.this, NotesActivity.class);
+                    startActivity(intent2);
                 } else {
                     Toast.makeText(EditTextActivity.this, R.string.fields_warning, Toast.LENGTH_SHORT).show();
                 }

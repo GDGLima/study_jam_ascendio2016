@@ -40,6 +40,7 @@ public class NotesAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
+
         ViewHolder noteViewHolder;
         if (convertView == null) {
             LayoutInflater layoutInflater = (LayoutInflater) parent.getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -63,9 +64,9 @@ public class NotesAdapter extends BaseAdapter {
         TextView tvCreatedAt;
 
         public ViewHolder(View view) {
-            tvTitle = (TextView)view.findViewById(R.id.tvTitle);
-            tvDescription = (TextView)view.findViewById(R.id.tvDescription);
-            tvCreatedAt = (TextView)view.findViewById(R.id.tvCreatedAt);
+            tvTitle = (TextView) view.findViewById(R.id.tvTitle);
+            tvDescription = (TextView) view.findViewById(R.id.tvDescription);
+            tvCreatedAt = (TextView) view.findViewById(R.id.tvCreatedAt);
         }
 
     }

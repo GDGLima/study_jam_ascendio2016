@@ -1,5 +1,6 @@
 package com.studyjam.studyjam.lesson2.ui;
 
+import android.app.Activity;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -30,6 +31,7 @@ public class AddNoteActivity extends AppCompatActivity {
     private void addNote(Note note) {
         NotesManager.getInstance().addNote(note);
         Toast.makeText(this, R.string.noteAdded, Toast.LENGTH_SHORT).show();
+        setResult(50);
         finish();
     }
 
