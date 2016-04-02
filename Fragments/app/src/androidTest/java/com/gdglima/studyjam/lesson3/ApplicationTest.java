@@ -1,4 +1,4 @@
-package com.project.jebus.sesson3;
+package com.gdglima.studyjam.lesson3;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;
