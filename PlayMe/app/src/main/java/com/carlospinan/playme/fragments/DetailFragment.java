@@ -20,8 +20,6 @@ import com.carlospinan.playme.helpers.Globals;
 import com.carlospinan.playme.helpers.Helper;
 import com.carlospinan.playme.models.AudioModel;
 
-import java.io.IOException;
-
 /**
  * @author Carlos Piñan
  */
@@ -69,35 +67,16 @@ public class DetailFragment extends Fragment implements OnTaskListener<Bitmap> {
         audioTitleTextView.setText(audioModel.getTitle());
         audioDescriptionTextView.setText(audioModel.getDescription());
         audioButton.setEnabled(false);
-        mediaPlayer = Helper.getMediaPlayer(getActivity(), audioModel.getAudio());
-        mediaPlayer.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
-            @Override
-            public void onPrepared(MediaPlayer mp) {
-                isPlaying = true;
-                audioButton.setEnabled(true);
-                updateAudioButtonDrawable();
-                mp.start();
-            }
-        });
-        mediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
-            @Override
-            public void onCompletion(MediaPlayer mp) {
-                isPlaying = false;
-                updateAudioButtonDrawable();
-            }
-        });
+        loadMediaPlayer();
         audioButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (mediaPlayer != null) {
                     if (isPlaying) {
                         mediaPlayer.stop();
+                        mediaPlayer.release();
                     } else {
-                        try {
-                            mediaPlayer.prepare();
-                        } catch (IOException e) {
-                            e.printStackTrace();
-                        }
+                        loadMediaPlayer();
                     }
                     isPlaying = !isPlaying;
                     updateAudioButtonDrawable();
@@ -155,4 +134,26 @@ public class DetailFragment extends Fragment implements OnTaskListener<Bitmap> {
 
     @Override
     public void onCancelled() { /* UNUSED */ }
+
+    private void loadMediaPlayer() {
+        mediaPlayer = Helper.getMediaPlayer(getActivity(), audioModel.getAudio());
+        mediaPlayer.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
+            @Override
+            public void onPrepared(MediaPlayer mp) {
+                isPlaying = true;
+                audioButton.setEnabled(true);
+                updateAudioButtonDrawable();
+                mp.start();
+            }
+        });
+        mediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+            @Override
+            public void onCompletion(MediaPlayer mp) {
+                isPlaying = false;
+                mp.stop();
+                mp.release();
+                updateAudioButtonDrawable();
+            }
+        });
+    }
 }
